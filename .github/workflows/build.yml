@@ -19,6 +19,10 @@ jobs:
         run: |
           echo "${{ secrets.ENV_PRODUCTION_LOCAL }}" > .env.production.local
 
+      # 3. .env.production.local 내용 출력 (디버깅용)
+      - name: Print .env.production.local content
+        run: cat .env.production.local
+
       # 3. Docker 이미지 빌드
       - name: Build Docker Image
         run: |

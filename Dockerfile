@@ -24,6 +24,9 @@ RUN rm -f .env.local
 # .env.production.local을 .env로 복사
 COPY .env.production.local .env
 
+# .env 파일 내용 출력 (디버깅용)
+RUN echo "\nContents of .env file:" && cat .env
+
 # Next.js 빌드
 RUN npm run build
 
