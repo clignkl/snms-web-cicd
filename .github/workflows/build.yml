@@ -14,7 +14,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Docker 이미지 빌드
+      # 2. .env.production.local 파일 생성
+      - name: Create .env.production.local file
+        run: |
+          echo "${{ secrets.ENV_PRODUCTION_LOCAL }}" > .env.production.local
+
+      # 3. Docker 이미지 빌드
       - name: Build Docker Image
         run: |
           docker build -t snms-web99 .
