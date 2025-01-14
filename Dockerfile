@@ -22,15 +22,15 @@ ENV NODE_ENV=production
 RUN rm -f .env.local
 
 # .env.production.local을 .env로 복사
-#COPY .env.production.local .env
-#COPY .env.production.local .env.production
+COPY .env.production.local .env
+COPY .env.production.local .env.production
 
 # .env 파일 내용 출력 (디버깅용)
-#RUN echo "\nContents of .env file1111:" && cat .env
+RUN echo "\nContents of .env file1111:" && cat .env
 
 # Next.js 빌드
 RUN npm run build
-#RUN echo "\nContents of .env file2222:" && cat .env.production
+RUN echo "\nContents of .env file2222:" && cat .env.production
 
 # 실행 이미지 단계
 FROM node:22-alpine
