@@ -1,5 +1,4 @@
 import { grafanaThemeAtom } from "@/atom/dashboardAtom"
-import { useContextPath } from "@/config/Providers"
 import { Box } from "@mui/material"
 import { useAtom } from "jotai"
 import { useEffect, useRef, useState } from "react"
@@ -11,7 +10,7 @@ interface GrafanaIframeProps {
 }
 
 export function GrafanaIframe({ src, selected, title }: GrafanaIframeProps) {
-  const contextPath = useContextPath()
+  // const contextPath = useContextPath()
   const iframeRef = useRef<HTMLIFrameElement | null>(null)
   const [theme] = useAtom(grafanaThemeAtom)
   const [loaded, setLoaded] = useState(false)
@@ -80,7 +79,8 @@ export function GrafanaIframe({ src, selected, title }: GrafanaIframeProps) {
       width="100%"
       height="750"
       title={title}
-      src={`${contextPath}${src}${selected}&theme=${theme}`}
+      src={`${src}${selected}&theme=${theme}`}
+      // src={`${contextPath}${src}${selected}&theme=${theme}`}
       // src={`${contextPath}/grafana/d/ae0ijnes4j7cwe/snms-server-resource?orgId=1&refresh=auto&kiosk${selected}`}
       /// grafana/d/ae0yw793f2800a/new-dashboard?orgId=1&from=1729567451243&to=1729589051243&refresh=auto&kiosk
       // grafana/d/ae0ijnes4j7cwe/server-resource?orgId=1&kiosk${selected}
