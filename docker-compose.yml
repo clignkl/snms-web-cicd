@@ -31,9 +31,9 @@ services:
   #   networks:
   #     - mynetwork
   web:
-    image: snms-web99
+    image: snms-web
     restart: always
-    container_name: snms-web99
+    container_name: snms-web
     ports:
       - "3000:3000"
     env_file:
@@ -44,9 +44,9 @@ services:
     #   db:
     #     condition: service_healthy
   auth:
-    image: snms-auth99
+    image: snms-auth
     restart: always
-    container_name: snms-auth99
+    container_name: snms-auth
     ports:
       - "3300:3000"
     env_file:
